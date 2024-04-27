@@ -48,15 +48,15 @@
                     {{ $rs->created_at }}
                 </td>
                 <td class="w-36">
-                    {{-- <div class="h-14 pt-5">
-                        <a href="{{ route('admin/qr/show', $rs->id) }}" class="text-blue-800">Detail</a> |
-                        <a href="{{ route('admin/qr/edit', $rs->id)}}" class="text-green-800 pl-2">Edit</a> |
+                    <div class="h-14 pt-5">
+                        {{-- <a href="{{ route('admin/qr/show', $rs->id) }}" class="text-blue-800">Detail</a> | --}}
+                        <a href="{{ route('admin/qr/edit', $rs->id)}}" class="text-green-800 pl-16">Edit</a> |
                         <form action="{{ route('admin/qr/destroy', $rs->id) }}" method="POST" onsubmit="return confirm('Delete?')" class="float-right text-red-800">
                             @csrf
                             @method('DELETE')
                             <button>Delete</button>
                         </form>
-                    </div> --}}
+                    </div>
                 </td>
             </tr>
             @endforeach

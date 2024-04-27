@@ -30,32 +30,32 @@ class QrController extends Controller
 
     public function show(string $id)
     {
-        // $QR = Product::findOrFail($id);
+        // $qr = qr::findOrFail($id);
 
-        return view('qr.show', compact('qr'));
+        // return view('qr.show', compact('qr'));
     }
 
     public function edit(string $id)
     {
-        // $QR= Product::findOrFail($id);
+        $qr= qr::findOrFail($id);
 
         return view('qr.edit', compact('qr'));
     }
     public function update(Request $request, string $id)
     {
-        // $product = Product::findOrFail($id);
+        $qr = qr::findOrFail($id);
 
-        // $product->update($request->all());
+        $qr->update($request->all());
 
-        return redirect()->route('admin/qr')->with('success', 'qr updated successfully');
+        return redirect()->route('admin/qr')->with('success', 'QR updated successfully');
     }
 
     public function destroy(string $id)
     {
-        // $product = Product::findOrFail($id);
+        $qr = qr::findOrFail($id);
 
-        // $product->delete();
+        $qr->delete();
 
-        return redirect()->route('admin/qr')->with('success', 'qr deleted successfully');
+        return redirect()->route('admin/qr')->with('success', 'QR deleted successfully');
     }
 }

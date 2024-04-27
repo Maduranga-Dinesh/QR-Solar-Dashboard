@@ -44,8 +44,8 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
 
     Route::get('/admin/qr/create', [QrController::class, 'create'])->name('admin/qr/create');
     Route::post('/admin/qr/store', [QrController::class, 'store'])->name('admin/qr/store');
-    // Route::get('/admin/products/show/{id}', [ProductController::class, 'show'])->name('admin/products/show');
-    // Route::get('/admin/products/edit/{id}', [ProductController::class, 'edit'])->name('admin/products/edit');
-    // Route::put('/admin/products/edit/{id}', [ProductController::class, 'update'])->name('admin/products/update');
-    // Route::delete('/admin/products/destroy/{id}', [ProductController::class, 'destroy'])->name('admin/products/destroy');
+    Route::get('/admin/qr/show/{id}', [QrController::class, 'show'])->name('admin/qr/show');
+    Route::get('/admin/qr/edit/{id}', [QrController::class, 'edit'])->name('admin/qr/edit');
+    Route::put('/admin/qr/edit/{id}', [QrController::class, 'update'])->name('admin/qr/update');
+    Route::delete('/admin/qr/destroy/{id}', [QrController::class, 'destroy'])->name('admin/qr/destroy');
 });
