@@ -10,6 +10,7 @@
     <title>QR Solar Charger | Login</title>
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js"></script>
+    <link rel="icon" type="image/png" href="IOT-10/iot-qr-dashboard/resources/favicon.png">
 </head>
 
 <body>
