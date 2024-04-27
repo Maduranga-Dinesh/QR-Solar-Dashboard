@@ -11,6 +11,7 @@ class qr extends Model
 
     protected $fillable = [
         'qr_id',
-        'value'
+        'time',
+        'amount'
     ];
 }

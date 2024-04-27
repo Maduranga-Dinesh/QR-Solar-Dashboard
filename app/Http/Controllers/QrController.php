@@ -23,7 +23,8 @@ class QrController extends Controller
 
         qr::create([
         'qr_id' => $request->input('qr_id'),
-        'value' => $request->input('value')
+        'time' => $request->input('time'),
+        'amount' => $request->input('amount')
         ]);
         return redirect()->route('admin/qr')->with('success', 'QR added successfully');
     }

@@ -19,7 +19,8 @@
             <tr class="w-36">
                 <th scope="col" class="px-6 py-3">ID</th>
                 <th scope="col" class="px-6 py-3">QR ID</th>
-                <th scope="col" class="px-6 py-3">Value</th>
+                <th scope="col" class="px-6 py-3">Duration</th>
+                <th scope="col" class="px-6 py-3">Amount</th>
                 <th scope="col" class="px-6 py-3">Status</th>
                 <th scope="col" class="px-6 py-3">Date and Time</th>
             </tr>
@@ -39,7 +40,10 @@
                     {{ $rs->qr_id }}
                 </td>
                 <td>
-                    {{ $rs->value }}
+                    {{ $rs->time }}
+                </td>
+                <td>
+                    {{ $rs->amount }}
                 </td>
                 <td>
                     {{ $rs->status }}

@@ -14,7 +14,8 @@ return new class extends Migration
         Schema::create('qrs', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('qr_id');
-            $table->double('value');
+            $table->double('time');
+            $table->double('amount');
             $table->integer('status')->default(0);
             $table->timestamps();
         });
