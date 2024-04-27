@@ -22,4 +22,9 @@ class AdminController extends Controller
     {
         return view('reports');
     }
+
+    public function insertqr()
+    {
+        return view('insertqr');
+    }
 }

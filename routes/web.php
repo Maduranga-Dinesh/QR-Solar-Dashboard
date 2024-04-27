@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\QrController;
 use App\Http\Controllers\UserController;
 
 Route::get('/', function () {
@@ -39,9 +40,10 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
 
     Route::get('/admin/reports', [AdminController::class, 'reports'])->name('admin/reports');
 
-    // Route::get('/admin/products', [ProductController::class, 'index'])->name('admin/products');
-    // Route::get('/admin/products/create', [ProductController::class, 'create'])->name('admin/products/create');
-    // Route::post('/admin/products/store', [ProductController::class, 'store'])->name('admin/products/store');
+    Route::get('/admin/qr', [QrController::class, 'index'])->name('admin/qr');
+
+    Route::get('/admin/qr/create', [QrController::class, 'create'])->name('admin/qr/create');
+    Route::post('/admin/qr/store', [QrController::class, 'store'])->name('admin/qr/store');
     // Route::get('/admin/products/show/{id}', [ProductController::class, 'show'])->name('admin/products/show');
     // Route::get('/admin/products/edit/{id}', [ProductController::class, 'edit'])->name('admin/products/edit');
     // Route::put('/admin/products/edit/{id}', [ProductController::class, 'update'])->name('admin/products/update');

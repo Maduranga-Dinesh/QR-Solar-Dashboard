@@ -163,6 +163,14 @@
                     </div>
                 </a>
 
+                <a href="{{ route('admin/qr') }}">
+                    <div
+                        class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white">
+                        <i class="bi bi-plus-circle plus-icon"></i>
+                        <span class="text-[15px] ml-4 text-gray-200 font-bold">Insert QR</span>
+                    </div>
+                </a>
+
                 <a href="{{ route('admin/profile') }}">
                     <div
                         class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white">
