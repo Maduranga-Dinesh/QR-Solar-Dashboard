@@ -21,12 +21,21 @@
 
         .big-size {
             font-size: 18px;
-            color: rgb(34, 22, 209);
+            color: rgb(242, 242, 245);
             transition: color 0.3s;
         }
 
         .big-size:hover {
-            color: green;
+            color: rgb(199, 199, 199);
+        }
+
+        .container {
+            background-color: rgb(37, 99, 235);
+            color: white;
+            padding: 9px;
+            border-radius: 8px;
+            width: 200px;
+            text-align: center;
         }
     </style>
 
@@ -37,20 +46,26 @@
         <div class="flex justify-between">
             <!-- Blade Template -->
 
-            <div class="centered-text">
+            <div class="container">
                 <h2>
                     <span id="currentDateTime" class="big-size"></span>
                 </h2>
             </div>
 
             <script>
-                // JavaScript to update current date and time
-                setInterval(function() {
-                    var now = new Date();
-                    var dateTimeString = now.toLocaleString();
-                    document.getElementById('currentDateTime').textContent = dateTimeString;
-                }, 1000); // Update every second
-            </script>
+
+    setInterval(function() {
+        var now = new Date();
+        var year = now.getFullYear();
+        var month = String(now.getMonth() + 1).padStart(2, '0'); // Adding 1 to month because it starts from 0
+        var day = String(now.getDate()).padStart(2, '0');
+        var hours = String(now.getHours()).padStart(2, '0');
+        var minutes = String(now.getMinutes()).padStart(2, '0');
+        var seconds = String(now.getSeconds()).padStart(2, '0');
+        var dateTimeString = year + "-" + month + "-" + day + " | " + hours + ":" + minutes + ":" + seconds;
+        document.getElementById('currentDateTime').textContent = dateTimeString;
+    }, 0); // Update every second
+</script>
 
 
             <div class="flex items-center">
