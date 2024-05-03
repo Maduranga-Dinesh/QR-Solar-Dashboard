@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\DeviceController;
 use App\Http\Controllers\QrController;
 use App\Http\Controllers\UserController;
 
@@ -33,6 +34,7 @@ Route::middleware(['auth', 'user-access:user'])->group(function () {
 // Admin Routes List
 Route::middleware(['auth', 'user-access:admin'])->group(function () {
     Route::get('/admin/home', [HomeController::class, 'adminHome'])->name('admin/home');
+    // Route::get('/admin/home', [DeviceController::class, 'index'])->name('index');
 
     Route::get('/admin/profile', [AdminController::class, 'profilepage'])->name('admin/profile');
 
@@ -48,4 +50,8 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
     Route::get('/admin/qr/edit/{id}', [QrController::class, 'edit'])->name('admin/qr/edit');
     Route::put('/admin/qr/edit/{id}', [QrController::class, 'update'])->name('admin/qr/update');
     Route::delete('/admin/qr/destroy/{id}', [QrController::class, 'destroy'])->name('admin/qr/destroy');
+
+
 });
+
+Route::get('qr/home', [DeviceController::class, 'index'])->name('index'); //sensor values

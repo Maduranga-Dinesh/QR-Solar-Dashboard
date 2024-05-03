@@ -140,4 +140,7 @@
         modal.style.display = "none"; // Close the modal
     });
 </script>
+<div>
+    <livewire:devices.devices-index/>
+</div>
 @endsection
