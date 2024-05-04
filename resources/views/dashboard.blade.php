@@ -28,6 +28,10 @@
     </div>
 </div>
 
+<div>
+    @livewire('temperature', ['temperature' => 1])
+</div>
+
 <!-- Custom Modal CSS -->
 <style>
     .modal {

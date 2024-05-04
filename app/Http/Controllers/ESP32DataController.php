@@ -25,4 +25,9 @@ class ESP32DataController extends Controller
 
         return response()->json(['message' => 'Data received successfully'], 200);
     }
+
+    public function add(Request $request){
+        $temperature = $request->input('Temperature');
+        return view('livewire.temperature')->with('temperature', $temperature);
+    }
 }
