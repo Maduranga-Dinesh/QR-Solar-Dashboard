@@ -51,16 +51,54 @@
     </div>
 </div>
 
-<div style="border: 2px solid blue; border-radius: 10px; padding: 20px; width: 50%; margin-top: 20px;">
+<div style="display: flex; justify-content: space-between; width: 100%; margin-top: 20px; gap: 10px;">
+    <div style="border: 2px solid blue; border-radius: 10px; padding: 20px; width: calc(50% - 5px);">
 
-    <div style="font-weight: bold; font-size: 30px;">Live sensor data</div>
-    <div style="margin-top: 10px;">
-        <div style="display: inline-block; font-size: 25px;">Current Temperature :</div>
-        <div style="display: inline-block; margin-left: 3px; font-weight: bold; font-size: 25px;" id="temperature_value">@livewire('temperature')</div>
+        <div style="font-weight: bold; font-size: 30px;">Current temperature</div>
+        <div style="margin-top: 10px;">
+            <div style="display: inline-block; font-size: 25px;">Data reading :</div>
+            <div style="display: inline-block; margin-left: 3px; font-weight: bold; font-size: 25px;" id="temperature_value">@livewire('temperature')</div>
+        </div>
+
+        <div style="margin-top: 10px;" id="current-time">{{ now()->format('Y-m-d H:i:s') }}</div>
     </div>
 
-    <div style="margin-top: 10px;" id="current-time">{{ now()->format('Y-m-d H:i:s') }}</div>
+    <div style="border: 2px solid blue; border-radius: 10px; padding: 20px; width: calc(50% - 5px);">
+
+        <div style="font-weight: bold; font-size: 30px;">Current voltage</div>
+        <div style="margin-top: 10px;">
+            <div style="display: inline-block; font-size: 25px;">Data reading :</div>
+            <div style="display: inline-block; margin-left: 3px; font-weight: bold; font-size: 25px;" id="voltage_value">@livewire('temperature')</div>
+        </div>
+
+        <div style="margin-top: 10px;" id="current-time">{{ now()->format('Y-m-d H:i:s') }}</div>
+    </div>
 </div>
+
+<div style="display: flex; justify-content: space-between; width: 100%; margin-top: 20px; gap: 10px;">
+    <div style="border: 2px solid blue; border-radius: 10px; padding: 20px; width: calc(50% - 5px);">
+
+        <div style="font-weight: bold; font-size: 30px;">Current Network status</div>
+        <div style="margin-top: 10px;">
+            <div style="display: inline-block; font-size: 25px;">Data reading :</div>
+            <div style="display: inline-block; margin-left: 3px; font-weight: bold; font-size: 25px;" id="temperature_value">@livewire('temperature')</div>
+        </div>
+
+        <div style="margin-top: 10px;" id="current-time">{{ now()->format('Y-m-d H:i:s') }}</div>
+    </div>
+
+    <div style="border: 2px solid blue; border-radius: 10px; padding: 20px; width: calc(50% - 5px);">
+
+        <div style="font-weight: bold; font-size: 30px;">Current user amount</div>
+        <div style="margin-top: 10px;">
+            <div style="display: inline-block; font-size: 25px;">Data reading :</div>
+            <div style="display: inline-block; margin-left: 3px; font-weight: bold; font-size: 25px;" id="voltage_value">@livewire('temperature')</div>
+        </div>
+
+        <div style="margin-top: 10px;" id="current-time">{{ now()->format('Y-m-d H:i:s') }}</div>
+    </div>
+</div>
+
 
 <div id="popupModal" style="display: none; position: fixed; bottom: 20px; right: 20px; background-color: rgba(0, 0, 0, 0.7); color: white; padding: 10px; border-radius: 5px;">
     Temperature exceeds!

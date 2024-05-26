@@ -1,4 +1,4 @@
-<div wire:poll.1000ms="updateTemperature">
+<div wire:poll.10000ms="updateTemperature">
     {{ $temperature }}
 </div>
 

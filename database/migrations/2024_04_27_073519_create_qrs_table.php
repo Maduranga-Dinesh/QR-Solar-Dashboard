@@ -17,6 +17,7 @@ return new class extends Migration
             $table->double('time');
             $table->double('amount');
             $table->integer('status')->default(0);
+            $table->string('lock_id');
             $table->timestamps();
         });
     }
