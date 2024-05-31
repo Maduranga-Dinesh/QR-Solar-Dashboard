@@ -19,15 +19,20 @@ class Temperature extends Component
 
     public function updateTemperature()
     {
-        $response = Http::get('http://192.168.8.125:80/temperature');
+        $response = Http::get('http://192.168.8.124:80/temperature');
 
         if ($response->successful()) {
             $this->temperature = $response->body();
-        } else {
+   
+               } else
+        {
             $this->temperature = null;
         }
 
     }
+
+
+
     public function render()
     {
         return view('livewire.temperature');

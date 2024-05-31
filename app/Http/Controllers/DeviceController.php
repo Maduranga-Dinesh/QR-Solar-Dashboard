@@ -11,6 +11,6 @@ class DeviceController extends Controller
     }
 
     public function getLockerOne(){
-        dd("H");
+        
     }
 }

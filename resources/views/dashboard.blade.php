@@ -110,6 +110,11 @@
     </div>
 </div>
 
+<div style="margin-top: 10px;">
+    <div style="display: inline-block; font-size: 25px;">QR Data reading :</div>
+    <div style="display: inline-block; margin-left: 3px; font-weight: bold; font-size: 25px;" id="qrcode_value">@livewire('qrcode')</div>
+</div>
+
 {{-- Tenperature exceed notofication --}}
 <div id="popupModal" style="display: none; position: fixed; bottom: 20px; right: 20px; background-color: rgba(0, 0, 0, 0.7); color: white; padding: 10px; border-radius: 5px;">
     Temperature exceeds!
