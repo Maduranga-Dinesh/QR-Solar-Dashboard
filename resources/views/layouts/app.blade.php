@@ -12,7 +12,8 @@
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <link rel="icon" type="image/png" href="IOT-10/iot-qr-dashboard/resources/favicon.png">
-
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    
     <style>
         .centered-text {
             margin-top: 5px;
@@ -37,6 +38,161 @@
             width: 200px;
             text-align: center;
         }
+
+
+    /* emergency button */
+    #emergencyButton {
+        background-color: rgb(255, 149, 0);
+        color: white;
+        border: none;
+        border-radius: 10px;
+        padding: 5px 10px;
+        transition: background-color 0.3s, color 0.3s;
+        cursor: pointer;
+    }
+
+
+    #l1Button {
+        background-color: rgb(52, 71, 219);
+        color: white;
+        border: none;
+        border-radius: 99px;
+        padding: 5px 10px;
+        transition: background-color 0.3s, color 0.3s;
+        cursor: pointer;
+    }
+
+    #l2Button {
+        background-color: rgb(52, 71, 219);
+        color: white;
+        border: none;
+        border-radius: 99px;
+        padding: 5px 10px;
+        transition: background-color 0.3s, color 0.3s;
+        cursor: pointer;
+    }
+
+    #l3Button {
+        background-color: rgb(52, 71, 219);
+        color: white;
+        border: none;
+        border-radius: 99px;
+        padding: 5px 10px;
+        transition: background-color 0.3s, color 0.3s;
+        cursor: pointer;
+    }
+
+    #l4Button {
+        background-color: rgb(52, 71, 219);
+        color: white;
+        border: none;
+        border-radius: 99px;
+        padding: 5px 10px;
+        transition: background-color 0.3s, color 0.3s;
+        cursor: pointer;
+    }
+
+    #l5Button {
+        background-color: rgb(52, 71, 219);
+        color: white;
+        border: none;
+        border-radius: 99px;
+        padding: 5px 10px;
+        transition: background-color 0.3s, color 0.3s;
+        cursor: pointer;
+    }
+
+    #updateButton {
+        background-color: rgb(56, 59, 85);
+        color: white;
+        border: none;
+        border-radius: 10px;
+        padding: 5px 10px;
+        transition: background-color 0.3s, color 0.3s;
+        cursor: pointer;
+    }
+
+    #updateButton:hover {
+        background-color: rgb(40, 30, 27);
+    }
+
+    #emergencyButton:hover {
+        background-color: rgb(215, 74, 27);
+    }
+
+ /* new modal */
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    .modal-content {
+        background-color: #fefefe;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 20%;
+        border-radius: 10px;
+    }
+
+    .modal-header{
+        margin-left: 10px;
+        align-content: center;
+    }
+
+    .modal-footer {
+        padding: 10px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .modal-body {
+        text-align: center;
+        padding: 10px 20px;
+    }
+
+    .modal-footer button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .btn-yes {
+        margin-left: 30px;
+        background-color: #244ccf;
+        color: white;
+    }
+
+    .btn-no {
+        margin-right:30px;
+        background-color: #f81a0b;
+        color: white;
+    }
+
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+
     </style>
 
 </head>
@@ -51,8 +207,8 @@
                     <span id="currentDateTime" class="big-size"></span>
                 </h2>
             </div>
-            <script>
 
+<script>
     setInterval(function() {
         var now = new Date();
         var year = now.getFullYear();
@@ -64,8 +220,9 @@
         var dateTimeString = year + "-" + month + "-" + day + " | " + hours + ":" + minutes + ":" + seconds;
         document.getElementById('currentDateTime').textContent = dateTimeString;
     }, 0); // Update every second
-</script>
 
+
+</script>
 
             <div class="flex items-center">
                 <button data-search class="p-4 md:hidden focus:outline-none" type="button">
@@ -135,16 +292,6 @@
                         <span class="text-[15px] ml-4 text-gray-200 font-bold">Dashboard</span>
                     </div>
                 </a>
-
-
-                {{-- <a href="{{ route('admin/recharge') }}">
-                    <div
-                        class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white">
-                        <i class="bi bi-lightning-fill"></i>
-                        <span class="text-[15px] ml-4 text-gray-200 font-bold">Recharge</span>
-                    </div> --}}
-                </a>
-
 
                 <a href="{{ route('admin/reports') }}">
                     <div

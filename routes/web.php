@@ -55,3 +55,5 @@ Route::middleware(['auth', 'user-access:admin'])->group(function () {
 });
 
 Route::get('qr/home', [DeviceController::class, 'index'])->name('index'); //sensor values
+
+Route::post('/lockerone', [DeviceController::class, 'getLockerOne'])->name('lockerone');

@@ -6,31 +6,42 @@
 
 @livewireStyles
 
-<style>
-    #emergencyButton {
-        background-color: red;
-        color: white;
-        border: none;
-        border-radius: 10px;
-        padding: 10px 20px;
-        transition: background-color 0.3s, color 0.3s;
-        cursor: pointer;
-    }
+<form id="l1form" action="http://192.168.8.125:80/l1receive" method="POST" style="display: none;">
+    @csrf
+    <input type="hidden" name="lockerone" value="L1 unlock">
+</form>
 
-    #emergencyButton:hover {
-        background-color: rgb(34, 35, 39);
-    }
-</style>
+<!-- Container for buttons aligned to the right side -->
 
-<div style="display: flex; justify-content: center;">
-    <button id="emergencyButton" style="font-size: 20px;">Emergency Stop</button>
+<div style="display: flex; gap: 10px; margin-top: 20px; margin-bottom: 20px;">
+
+    <select id="dropdownMenu" style="font-size: 20px; padding: 5px; border-radius: 10px; border: 1px solid #ccc;">
+        <option value="option1" selected>Select an Area</option>
+        <option value="option2">Kandy-City-Centre</option>
+        <option value="option3">Kandy-Peradeniya-Bus_St</option>
+        <option value="option4">Kandy-Mulgampola</option>
+        <option value="option5">Kandy-Gelioya-City</option>
+        <option value="option6">Colombo-Fort</option>
+        <option value="option7">Colombo-Liberty-Plaza</option>
+        <option value="option8">Colombo-Bus_St</option>
+    </select>
+    <button id="updateButton" style="font-size: 15px;">Update</button>
+
+    <div style="margin-left: auto;">
+        <button id="emergencyButton" style="font-size: 20px;">Emergency Stop</button>
+        <button id="l1Button" style="font-size: 20px;" onclick="document.getElementById('l1form').submit();">L1</button>
+        <button id="l2Button" style="font-size: 20px;">L2</button>
+        <button id="l3Button" style="font-size: 20px;">L3</button>
+        <button id="l4Button" style="font-size: 20px;">L4</button>
+        <button id="l5Button" style="font-size: 20px;">L5</button>
+    </div>
 </div>
+
 
 <div>
     <div class="relative">
         <h1 class="font-bold text-2xl ml-0">Dashboard</h1>
         <hr class="mt-2 border-t border-gray-600">
-
     </div>
 </div>
 
@@ -99,10 +110,16 @@
     </div>
 </div>
 
+<div style="margin-top: 10px;">
+    <div style="display: inline-block; font-size: 25px;">QR Data reading :</div>
+    <div style="display: inline-block; margin-left: 3px; font-weight: bold; font-size: 25px;" id="qrcode_value">@livewire('qrcode')</div>
+</div>
 
+{{-- Tenperature exceed notofication --}}
 <div id="popupModal" style="display: none; position: fixed; bottom: 20px; right: 20px; background-color: rgba(0, 0, 0, 0.7); color: white; padding: 10px; border-radius: 5px;">
     Temperature exceeds!
 </div>
+
 
 <script>
     function showPopupModal() {
@@ -126,134 +143,50 @@
         }
     }
 
-    // Call the function initially
     checkTemperature();
 
-    // Update the temperature and check it periodically
+    function submitForm() {
+            var form = document.getElementById('l1form');
+            form.submit();
+
+            showPopupModal('Request submitted successfully');
+        }
+
     setInterval(function() {
         checkTemperature();
     }, 1000); // 1000 milliseconds = 1 second
-</script>
 
-
-<script>
-    // Update current time every second
     setInterval(function() {
         var currentTimeElement = document.getElementById('current-time');
         currentTimeElement.textContent = new Date().toISOString().slice(0, 19).replace('T', ' '); // Update time
     }, 1000);
-</script>
 
-<!-- Custom Modal CSS -->
-<style>
-    .modal {
-        display: none;
-        position: fixed;
-        z-index: 1;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        overflow: auto;
-        background-color: rgba(0, 0, 0, 0.4);
-    }
 
-    .modal-content {
-        background-color: #fefefe;
-        margin: 15% auto;
-        padding: 20px;
-        border: 1px solid #888;
-        width: 20%;
-        border-radius: 10px;
-    }
-
-    .modal-header{
-        margin-left: 10px;
-        align-content: center;
-    }
-
-    .modal-footer {
-        padding: 10px 20px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .modal-body {
-        text-align: center;
-        padding: 10px 20px;
-    }
-
-    .modal-footer button {
-        padding: 10px 20px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-
-    .btn-yes {
-        margin-left: 30px;
-        background-color: #244ccf;
-        color: white;
-    }
-
-    .btn-no {
-        margin-right:30px;
-        background-color: #f81a0b;
-        color: white;
-    }
-
-    .close {
-        color: #aaa;
-        float: right;
-        font-size: 28px;
-        font-weight: bold;
-    }
-
-    .close:hover,
-    .close:focus {
-        color: black;
-        text-decoration: none;
-        cursor: pointer;
-    }
-</style>
-
-<script>
-    // Get the button that opens the modal
     var btn = document.getElementById("emergencyButton");
-
-    // Get the modal
     var modal = document.getElementById("customModal");
-
-    // Get the <span> element that closes the modal
     var span = document.getElementsByClassName("close")[0];
 
-    // When the user clicks the button, open the modal
     btn.onclick = function() {
         modal.style.display = "block";
     }
 
-    // When the user clicks on <span> (x), close the modal
     span.onclick = function() {
         modal.style.display = "none";
     }
 
-    // When the user clicks anywhere outside of the modal, close it
     window.onclick = function(event) {
         if (event.target == modal) {
             modal.style.display = "none";
         }
     }
 
-    // Add event listener for Yes button
     document.getElementById('confirmYes').addEventListener('click', function() {
         alert('Emergency stop initiated!');
-        modal.style.display = "none"; // Close the modal after action
+        modal.style.display = "none";
     });
 
-    // Add event listener for No button
     document.getElementById('confirmNo').addEventListener('click', function() {
-        modal.style.display = "none"; // Close the modal
+        modal.style.display = "none";
     });
 </script>
 

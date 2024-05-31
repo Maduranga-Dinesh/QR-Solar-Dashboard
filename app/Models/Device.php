@@ -10,5 +10,6 @@ class Device extends Model
     // use HasFactory;
     protected $fillable = [
         'temperature',
+        'qrcodesend',
     ];
 }
