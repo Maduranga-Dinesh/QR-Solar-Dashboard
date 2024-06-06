@@ -11,5 +11,7 @@ class Device extends Model
     protected $fillable = [
         'temperature',
         'qrcodesend',
+        'voltage',
+        'network',
     ];
 }

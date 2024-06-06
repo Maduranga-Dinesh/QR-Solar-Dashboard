@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <link rel="icon" type="image/png" href="IOT-10/iot-qr-dashboard/resources/favicon.png">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    
+
     <style>
         .centered-text {
             margin-top: 5px;
@@ -293,13 +293,13 @@
                     </div>
                 </a>
 
-                <a href="{{ route('admin/reports') }}">
+                {{-- <a href="{{ route('admin/reports') }}">
                     <div
                         class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white">
                         <i class="bi bi-bar-chart"></i>
                         <span class="text-[15px] ml-4 text-gray-200 font-bold">Reports</span>
                     </div>
-                </a>
+                </a> --}}
 
                 <a href="{{ route('admin/qr') }}">
                     <div

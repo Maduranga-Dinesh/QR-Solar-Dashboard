@@ -13,5 +13,6 @@ class VerifyCsrfToken extends Middleware
      */
     protected $except = [
         //
+        'http://192.168.8.125:80/l1receive',
     ];
 }
